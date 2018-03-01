@@ -1,6 +1,6 @@
 {% set name = "datashader" %}
-{% set version = "0.6.3" %}
-{% set sha256 = "a5516d2bee846c1d3b1585434eb58a55b0c84a5df5942ef373bf83614fa81c92" %}
+{% set version = "0.6.5" %}
+{% set sha256 = "583fa37fec94de59a8910097430fb0157927020448910ea78be4bc77899471e9" %}
 
 package:
   name: {{ name|lower }}
