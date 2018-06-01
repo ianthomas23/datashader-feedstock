@@ -1,49 +1,60 @@
 {% set name = "datashader" %}
-{% set version = "0.6.5" %}
-{% set sha256 = "583fa37fec94de59a8910097430fb0157927020448910ea78be4bc77899471e9" %}
+{% set version = "0.6.6" %}
+{% set sha256 = "fe0a3d96203a4af2c55e6ecf6ccb5d993e2f7ea3b03220e25108744e1fe0d73f" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/bokeh/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: python -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - datashader = datashader.__main__:main
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
+    - param >=1.6.1
   run:
-    - python
+    - python >=2.7
+    - bokeh
+    - colorcet >=0.9.0
     - dask >=0.15.4
     - datashape >=0.5.1
-    - numba >=0.35.0
+    - numba >=0.37.0
     - numpy >=1.7
     - pandas >=0.20.3
+    - param >=1.6.1
     - pillow >=3.1.1
-    - xarray >=0.9.6
+    - pyct
+    - scikit-image
+    - scipy
     - toolz >=0.7.4
-    - colorcet >=0.9.0
-    - param >=1.5.0,<2.0
+    - xarray >=0.9.6
 
 test:
   requires:
+    - nbsmoke >=0.2.6
     - pytest >=2.8.5
     - pytest-benchmark >=3.0.0
-    - rasterio
-    - scipy
   imports:
     - datashader
+  commands:
+    - pytest --pyargs --doctest-modules --doctest-ignore-import-errors datashader
+    - datashader copy-examples --path=. --force
+    - datashader fetch-data --path=. --datasets small.yml
+    # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
+    - pytest --nbsmoke-run -k ".ipynb" getting_started/2_Pipeline.ipynb
 
 about:
-  home: https://github.com/bokeh/datashader
+  home: http://datashader.org
   license: New BSD
   license_file: LICENSE.txt
   summary: 'Data visualization toolchain based on aggregating into a grid'
@@ -51,7 +62,7 @@ about:
   description: |
     Datashader is a data rasterization pipeline for automating the process of
     creating meaningful representations of large amounts of data.
-  doc_url: https://datashader.readthedocs.io/
+  doc_url: http://datashader.org
   dev_url: https://github.com/bokeh/datashader
 
 extra:
