@@ -1,6 +1,6 @@
 {% set name = "datashader" %}
-{% set version = "0.6.6" %}
-{% set sha256 = "fe0a3d96203a4af2c55e6ecf6ccb5d993e2f7ea3b03220e25108744e1fe0d73f" %}
+{% set version = "0.6.8" %}
+{% set sha256 = "af070d76c567f33c8ccc4193887466846807c05ba7d546a1469e7ca2dd5619c6" %}
 
 package:
   name: {{ name|lower }}
@@ -13,15 +13,16 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - datashader = datashader.__main__:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - param >=1.6.1
+    - pyct-core >=0.4.5
   run:
     - python >=2.7
     - bokeh
@@ -33,7 +34,7 @@ requirements:
     - pandas >=0.20.3
     - param >=1.6.1
     - pillow >=3.1.1
-    - pyct
+    - pyct >=0.4.5
     - scikit-image
     - scipy
     - toolz >=0.7.4
@@ -42,8 +43,8 @@ requirements:
 test:
   requires:
     - nbsmoke >=0.2.6
-    - pytest >=2.8.5
-    - pytest-benchmark >=3.0.0
+    - pytest ==3.6.3
+    - pytest-benchmark ==3.0.0
   imports:
     - datashader
   commands:
@@ -56,9 +57,9 @@ test:
 about:
   home: http://datashader.org
   license: New BSD
+  license_family: BSD
   license_file: LICENSE.txt
   summary: 'Data visualization toolchain based on aggregating into a grid'
-
   description: |
     Datashader is a data rasterization pipeline for automating the process of
     creating meaningful representations of large amounts of data.
