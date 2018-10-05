@@ -1,18 +1,16 @@
-{% set name = "datashader" %}
 {% set version = "0.6.8" %}
-{% set sha256 = "af070d76c567f33c8ccc4193887466846807c05ba7d546a1469e7ca2dd5619c6" %}
 
 package:
-  name: {{ name|lower }}
+  name: datashader
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/d/datashader/datashader-{{ version }}.tar.gz
+  sha256: af070d76c567f33c8ccc4193887466846807c05ba7d546a1469e7ca2dd5619c6
 
 build:
-  noarch: python
   number: 0
+  noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - datashader = datashader.__main__:main
@@ -56,7 +54,7 @@ test:
 
 about:
   home: http://datashader.org
-  license: New BSD
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
   summary: 'Data visualization toolchain based on aggregating into a grid'
@@ -70,3 +68,4 @@ extra:
   recipe-maintainers:
     - jbednar
     - jbcrail
+    - ocefpaf
