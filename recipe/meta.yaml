@@ -1,4 +1,4 @@
-{% set version = "0.6.9" %}
+{% set version = "0.7.0" %}
 
 package:
   name: datashader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/datashader/datashader-{{ version }}.tar.gz
-  sha256: cfe89d3d2fec3f5c97fe6cdab2e52d5b4d123904833cc5b596c7d67fd246d2df
+  sha256: 5baf218713dc1ad4791f7bcf606ef8f618273945e788c59f9573aebd7cb851f8
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
     - python >=2.7
     - bokeh
     - colorcet >=0.9.0
-    - dask >=0.15.4
+    - dask >=0.18.0
     - datashape >=0.5.1
     - numba >=0.37.0
     - numpy >=1.7
@@ -41,8 +41,9 @@ requirements:
 test:
   requires:
     - nbsmoke >=0.2.6
-    - pytest ==3.6.3
+    - pytest ==3.9.3
     - pytest-benchmark ==3.0.0
+    - fastparquet >=0.1.6
   imports:
     - datashader
   commands:
@@ -69,3 +70,4 @@ extra:
     - jbednar
     - ocefpaf
     - philippjfr
+    - jsignell
