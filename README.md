@@ -17,10 +17,11 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>All platforms:</td>
+<table><tr><td>All platforms:</td>
     <td>
-      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5552&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/datashader-feedstock?branchName=master">
+      </a>
     </td>
   </tr>
 </table>
@@ -118,6 +119,7 @@ Feedstock Maintainers
 =====================
 
 * [@jbednar](https://github.com/jbednar/)
+* [@jsignell](https://github.com/jsignell/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@philippjfr](https://github.com/philippjfr/)
 
