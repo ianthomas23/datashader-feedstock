@@ -1,4 +1,4 @@
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: datashader
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/datashader/datashader-{{ version }}.tar.gz
-  sha256: 5baf218713dc1ad4791f7bcf606ef8f618273945e788c59f9573aebd7cb851f8
+  sha256: 59ac9e3830167d07b350992402a9f547f26eca45cd69a0fb04061a4047e7ff2a
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
@@ -48,10 +48,8 @@ test:
   imports:
     - datashader
   commands:
-    # just commenting the tests out for datashader 0.7.0 build 1 since pandas >0.25 breaks the testing mechanisms
-    # - pytest --pyargs --doctest-modules --doctest-ignore-import-errors datashader
+    - pytest --pyargs --doctest-modules --doctest-ignore-import-errors datashader
     - datashader copy-examples --path=. --force
-    - datashader fetch-data --path=. --datasets small.yml
     # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
     - pytest --nbsmoke-run -k ".ipynb" getting_started/2_Pipeline.ipynb
 
@@ -65,7 +63,7 @@ about:
     Datashader is a data rasterization pipeline for automating the process of
     creating meaningful representations of large amounts of data.
   doc_url: http://datashader.org
-  dev_url: https://github.com/bokeh/datashader
+  dev_url: https://github.com/pyviz/datashader
 
 extra:
   recipe-maintainers:
