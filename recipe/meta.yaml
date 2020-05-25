@@ -1,4 +1,4 @@
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: datashader
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/datashader/datashader-{{ version }}.tar.gz
-  sha256: 207a72afc7262e261c10e079e681d29b707cc7447f0dc6dc63d78adb665e8d0c
+  sha256: 80701436d3c50fcb9579d675de23fe6ed369fea38c324a91f4e0f4e39c0ae816
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - datashader = datashader.__main__:main
 
@@ -58,7 +58,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'Data visualization toolchain based on aggregating into a grid'
+  summary: Data visualization toolchain based on aggregating into a grid
   description: |
     Datashader is a data rasterization pipeline for automating the process of
     creating meaningful representations of large amounts of data.
