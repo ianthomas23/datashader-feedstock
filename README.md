@@ -5,7 +5,7 @@ Home: http://datashader.org
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Data visualization toolchain based on aggregating into a grid
 
