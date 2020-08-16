@@ -42,7 +42,7 @@ test:
     - fastparquet >=0.1.6
     - flake8
     - nbsmoke >=0.2.6
-    - pytest >=3.9.3
+    - pytest >=3.9.3,>=6.0
     - pytest-benchmark >=3.0.0
   imports:
     - datashader
