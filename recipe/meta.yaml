@@ -45,6 +45,7 @@ test:
     - pytest >=3.9.3,<6.0
     - pytest-benchmark >=3.0.0
     - holoviews >=1.14.1
+    - netcdf4
   imports:
     - datashader
   commands:
