@@ -44,6 +44,7 @@ test:
     - nbsmoke >=0.2.6
     - pytest >=3.9.3,<6.0
     - pytest-benchmark >=3.0.0
+    - holoviews >=1.14.1
   imports:
     - datashader
   commands:
