@@ -1,7 +1,7 @@
 About datashader
 ================
 
-Home: http://datashader.org
+Home: https://datashader.org
 
 Package license: BSD-3-Clause
 
@@ -9,9 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datashader-feed
 
 Summary: Data visualization toolchain based on aggregating into a grid
 
-Development: https://github.com/pyviz/datashader
+Development: https://github.com/holoviz/datashader
 
-Documentation: http://datashader.org
+Documentation: https://datashader.org
 
 Datashader is a data rasterization pipeline for automating the process of
 creating meaningful representations of large amounts of data.
@@ -44,6 +44,7 @@ Installing `datashader` from the `conda-forge` channel can be achieved by adding
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `datashader` can be installed with:
