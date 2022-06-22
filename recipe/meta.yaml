@@ -9,7 +9,7 @@ source:
   sha256: 54617adf9d6554205ab7af0463d218f651e4d610cc72305cad574f4a5885ab86
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
@@ -22,7 +22,7 @@ requirements:
     - param >=1.6.1
     - pyct-core >=0.4.5
   run:
-    - python >=2.7
+    - python >=3.7
     - colorcet >=0.9.0
     - dask >=0.18.0
     - datashape >=0.5.1
@@ -41,7 +41,7 @@ test:
     - fastparquet >=0.1.6
     - flake8
     - nbsmoke >=0.2.6
-    - pytest >=3.9.3,<6.0
+    - pytest >=3.9.3
     - pytest-benchmark >=3.0.0
     - holoviews >=1.14.1
     - netcdf4
@@ -70,3 +70,4 @@ extra:
     - ocefpaf
     - philippjfr
     - jsignell
+    - ianthomas23
