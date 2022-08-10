@@ -24,16 +24,15 @@ requirements:
   run:
     - python >=3.7
     - colorcet >=0.9.0
-    - dask >=0.18.0
+    - dask-core
     - datashape >=0.5.1
     - numba >=0.51.0
-    - numpy >=1.7
     - pandas >=0.24.1
     - param >=1.6.1
     - pillow >=3.1.1
     - pyct >=0.4.5
+    - requests
     - scipy
-    - toolz >=0.7.4
     - xarray >=0.9.6
 
 test:
